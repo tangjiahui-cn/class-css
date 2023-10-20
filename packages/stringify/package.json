@@ -1,14 +1,11 @@
 {
-  "name": "@class/stringify",
-  "version": "1.0.2",
+  "name": "class-css-stringify",
+  "version": "1.0.0",
   "description": "",
   "private": false,
   "type": "module",
   "types": "./src/index.ts",
   "module": "./src/index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC"

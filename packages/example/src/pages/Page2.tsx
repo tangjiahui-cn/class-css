@@ -1,4 +1,4 @@
-import { css } from "@class/css";
+import { css } from "class-css";
 import styles from "./Page2.module.less";
 
 export default function Page2() {

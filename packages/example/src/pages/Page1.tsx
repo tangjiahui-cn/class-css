@@ -1,7 +1,7 @@
 import styles from "./Page1.module.less";
 import { useState } from "react";
 import { Space, Radio, Button } from "antd";
-import { css } from "@class/css";
+import { css } from "class-css";
 
 export default function Page1() {
   const [color, setColor] = useState("blue");

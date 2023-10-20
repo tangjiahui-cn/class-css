@@ -1,12 +1,12 @@
 {
-  "name": "@class/root",
+  "name": "class-css-root",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "dev": "lerna run dev --scope @class/example",
-    "build": "lerna run build --scope @class/css"
+    "dev": "lerna run dev --scope class-css-example",
+    "build": "lerna run build --scope class-css-css"
   },
   "dependencies": {},
   "devDependencies": {

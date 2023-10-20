@@ -1,7 +1,7 @@
 import createExecutor from "./utils/executor";
-import hash from '@class/hash';
-import createCache from "@class/cache";
-import getStyleString from "@class/stringify";
+import hash from 'class-css-hash';
+import createCache from "class-css-cache";
+import getStyleString from "class-css-stringify";
 
 export interface StyleObject {
   [propKey: string]: string | number;

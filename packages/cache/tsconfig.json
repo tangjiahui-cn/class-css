@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "emitDeclarationOnly": true,
+    "baseUrl": ".",
+    "declarationDir": "./dist-types"
+  },
+  "include": ["src"]
+}

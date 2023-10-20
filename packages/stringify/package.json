@@ -4,9 +4,13 @@
   "description": "",
   "private": false,
   "type": "module",
-  "types": "./src/index.ts",
-  "module": "./src/index.ts",
+  "types": "./dist-types/index.d.ts",
+  "module": "./dist/index.esm.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "clean": "rimraf ./dist ./dist-types",
+    "build:ts": "rimraf ./dist-types && tsc"
+  }
 }

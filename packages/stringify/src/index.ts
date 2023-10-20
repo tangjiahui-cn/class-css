@@ -2,14 +2,20 @@
  * style对象转字符串
  */
 
-interface StyleObject {
-  [k: string]: number | string;
+import getStyleSheetList, {
+  styleSheetListToString,
+} from "./utils/getStyleSheetList";
+
+export type StyleObjectValue = StyleObject | string | number;
+export interface StyleObject {
+  [k: string]: StyleObjectValue;
 }
-export default function getStyleString(style: StyleObject) {
-  const list: string[] = [];
-  for (const k in style) {
-    list.push(`${k}:${style[k]}`);
+
+export default function getStyleString(className: string, style: StyleObject) {
+  if (!className) {
+    throw new Error('getStyleString must input "className"');
   }
-  const str = list.join(";");
-  return str ? str + ";" : "";
+  const tagClassName = '.' + className;
+  const list = getStyleSheetList(tagClassName, style);
+  return styleSheetListToString(list);
 }

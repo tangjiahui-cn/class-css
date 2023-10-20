@@ -1,20 +1,6 @@
-// @flow
-/* eslint-disable */
-// Inspired by https://github.com/garycourt/murmurhash-js
-// Ported from https://github.com/aappleby/smhasher/blob/61a0530f28277f2e850bfc39600ce61d02b518de/src/MurmurHash2.cpp#L37-L86
-
+// use @emotion/hash hash.js.
 export default function hash(str: any) {
-  // 'm' and 'r' are mixing constants generated offline.
-  // They're not really 'magic', they just happen to work well.
-
-  // const m = 0x5bd1e995;
-  // const r = 24;
-
-  // Initialize the hash
-
   var h = 0;
-
-  // Mix 4 bytes at a time into the hash
 
   var k,
     i = 0,

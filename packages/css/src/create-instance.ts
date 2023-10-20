@@ -16,9 +16,9 @@ export function createClassCss(options: Options) {
   const executor = createExecutor(options.key);
 
   function css (style: StyleObject) {
-    const styleStr: string = getStyleString(style);
-    const hashStr: string = hash(styleStr);
+    const hashStr: string = hash(JSON.stringify(style));
     const className = `${options.key}-${hashStr}`;
+    const styleStr: string = getStyleString(className, style);    
 
     // 添加样式到缓存中
     cache.add(hashStr, styleStr);

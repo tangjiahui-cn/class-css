@@ -8,7 +8,8 @@
     "clean": "lerna run clean && lerna clean -y ",
     "dev": "lerna run dev --scope class-css-example",
     "build": "pnpm build:ts && node ./script/build",
-    "build:ts": "lerna run build:ts"
+    "build:ts": "lerna run build:ts",
+    "postinstall": "pnpm build"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.2",

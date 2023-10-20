@@ -2,6 +2,7 @@
   "name": "@class/stringify",
   "version": "1.0.1",
   "description": "",
+  "private": false,
   "type": "module",
   "types": "./src/index.ts",
   "module": "./src/index.ts",

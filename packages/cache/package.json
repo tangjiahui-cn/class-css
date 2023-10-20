@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "",
   "type": "module",
+  "private": false,
   "types": "./src/index.ts",
   "module": "./src/index.ts",
   "scripts": {

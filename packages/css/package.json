@@ -1,6 +1,6 @@
 {
   "name": "@class/css",
-  "version": "1.0.3",
+  "version": "1.0.1",
   "description": "help write css in class",
   "private": false,
   "module": "./dist/index.esm.js",
@@ -12,9 +12,9 @@
   "author": "tangjiahui-cn",
   "license": "ISC",
   "dependencies": {
-    "@class/cache": "workspace:^1.0.2",
-    "@class/hash": "workspace:^1.0.3",
-    "@class/stringify": "workspace:^1.0.2"
+    "@class/cache": "^1.0.1",
+    "@class/hash": "^1.0.1",
+    "@class/stringify": "^1.0.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.2",
@@ -23,5 +23,6 @@
     "clean-webpack-plugin": "^4.0.0",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
-  }
+  },
+  "gitHead": "eebd337c4985055b5cec322a3b9c46b6c0a4e97e"
 }

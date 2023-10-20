@@ -1,0 +1,15 @@
+{
+  "name": "@class/root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "lerna run dev --scope @class/example",
+    "build": "lerna run build --scope @class/css"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "lerna": "^7.3.0"
+  }
+}

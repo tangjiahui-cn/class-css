@@ -1,6 +1,6 @@
 {
   "name": "class-css-hash",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "",
   "type": "module",
   "module": "./src/index.ts",

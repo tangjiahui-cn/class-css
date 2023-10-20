@@ -1,6 +1,6 @@
 {
   "name": "@class/css",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "help write css in class",
   "private": false,
   "module": "./dist/index.esm.js",
@@ -12,9 +12,9 @@
   "author": "tangjiahui-cn",
   "license": "ISC",
   "dependencies": {
-    "@class/cache": "workspace:^1.0.1",
+    "@class/cache": "workspace:^1.0.2",
     "@class/hash": "workspace:^1.0.1",
-    "@class/stringify": "workspace:^1.0.1"
+    "@class/stringify": "workspace:^1.0.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.2",

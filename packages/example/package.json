@@ -1,13 +1,13 @@
 {
   "name": "@class/example",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite"
   },
   "dependencies": {
-    "@class/css": "workspace:^1.0.0",
+    "@class/css": "workspace:^1.0.1",
     "antd": "^5.10.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

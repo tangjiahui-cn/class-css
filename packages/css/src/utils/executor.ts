@@ -8,6 +8,7 @@ export default function createExecutor(key: string) {
   tagList = getTagList(key);
   let style: HTMLStyleElement | undefined = undefined;
   let textNode: Text | undefined = undefined;
+  console.log('create executor:', tagList)
 
   // 确保全局每个key只存在一个style标签
   // 后续创建同类的执行器，都只会操作相同标签
@@ -54,5 +55,6 @@ export default function createExecutor(key: string) {
 
   return {
     update,
+    getTagList
   };
 }

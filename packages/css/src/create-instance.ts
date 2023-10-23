@@ -42,7 +42,10 @@ export function createClassCss(options: Options) {
   }
 
   return {
+    key: options.key,
     css,
     keyframes,
+    getCache: () => cache,
+    getExecutor: () => executor,
   };
 }

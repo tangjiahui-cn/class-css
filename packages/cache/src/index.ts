@@ -5,6 +5,7 @@ import { globalCacheMap } from "./globalCacheMap";
 
 export default function createCache(key) {
   // 获取全局注册过的cache
+  console.log('create cache: ', globalCacheMap.current[key]);
   const cache = globalCacheMap.current[key] || (globalCacheMap.current[key] = {
     styleSheetText: '',
     cached: new Set(),

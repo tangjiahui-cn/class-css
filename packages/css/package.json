@@ -1,6 +1,6 @@
 {
   "name": "class-css",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "help write css in class",
   "private": false,
   "type": "module",

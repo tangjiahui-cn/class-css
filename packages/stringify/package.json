@@ -1,6 +1,6 @@
 {
   "name": "class-css-stringify",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "",
   "private": false,
   "types": "./dist-types/index.d.ts",

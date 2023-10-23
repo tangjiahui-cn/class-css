@@ -1,6 +1,6 @@
 {
   "name": "class-css-hash",
-  "version": "1.0.12",
+  "version": "1.0.14",
   "description": "",
   "types": "./dist-types/index.d.ts",
   "module": "./dist/index.esm.js",

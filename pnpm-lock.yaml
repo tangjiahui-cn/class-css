@@ -29,9 +29,9 @@ importers:
 
   packages/css:
     specifiers:
-      class-css-cache: workspace:^1.0.13
-      class-css-hash: ^1.0.12
-      class-css-stringify: ^1.0.10
+      class-css-cache: workspace:^1.0.14
+      class-css-hash: ^1.0.14
+      class-css-stringify: ^1.0.14
     dependencies:
       class-css-cache: link:../cache
       class-css-hash: link:../hash
@@ -45,8 +45,8 @@ importers:
       '@typescript-eslint/parser': ^6.0.0
       '@vitejs/plugin-react': ^4.0.3
       antd: ^5.10.1
-      class-css: workspace:^1.0.13
-      class-css-cache: workspace:^1.0.13
+      class-css: workspace:^1.0.14
+      class-css-cache: workspace:^1.0.14
       eslint: ^8.45.0
       eslint-plugin-react-hooks: ^4.6.0
       eslint-plugin-react-refresh: ^0.4.3

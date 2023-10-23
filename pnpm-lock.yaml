@@ -45,7 +45,7 @@ importers:
       '@typescript-eslint/parser': ^6.0.0
       '@vitejs/plugin-react': ^4.0.3
       antd: ^5.10.1
-      class-css: workspace:^1.0.16
+      class-css: workspace:^1.0.17
       class-css-cache: workspace:^1.0.16
       eslint: ^8.45.0
       eslint-plugin-react-hooks: ^4.6.0

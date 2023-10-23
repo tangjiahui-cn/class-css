@@ -23,7 +23,7 @@ export function createClassCss(options: Options) {
 
     // 有待更新缓存时，才更新
     if (cache.tempSize()) {
-      executor.update(cache.genStyleSheetText());
+      executor.updateStyleSheet(cache.genStyleSheetText());
     }
   }
 

@@ -5,7 +5,7 @@
 ## Quick Start
 运行一个简单的示例程序。
 ```jsx
-import {hash} from 'class-css-hash'
+const hash = require("class-css-cache");
 
 const hashStr = hash('asdasdiajwidaojodw');
 console.log(hashStr) // 示例：zh1ac6（类似的hash值）

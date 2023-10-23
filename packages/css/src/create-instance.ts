@@ -8,12 +8,14 @@ export interface StyleObject {
 }
 
 export interface Options {
-  key: string;
+  key: string; // 唯一key
+  hash?: (value: string) => string;  // 计算hash函数
 }
 
 export function createClassCss(options: Options) {
   const cache = createCache(options.key);
   const executor = createExecutor(options.key);
+  const hashFn = options?.hash || hash;
 
   function appendCache(hashStr: string, styleStr: string) {
     // 添加样式到缓存中
@@ -26,7 +28,7 @@ export function createClassCss(options: Options) {
   }
 
   function css(style: StyleObject) {
-    const hashStr: string = hash(JSON.stringify(style));
+    const hashStr: string = hashFn(JSON.stringify(style));
     const className = `${options.key}-${hashStr}`;
     const styleStr: string = getStyleString(className, style);
     appendCache(hashStr, styleStr);
@@ -34,7 +36,7 @@ export function createClassCss(options: Options) {
   }
 
   function keyframes(style: StyleObject) {
-    const hashStr: string = hash(JSON.stringify(style));
+    const hashStr: string = hashFn(JSON.stringify(style));
     const keyframeName = `${options.key}-keyframes-${hashStr}`;
     const styleStr: string = getKeyframesString(keyframeName, style);
     appendCache(hashStr, styleStr);

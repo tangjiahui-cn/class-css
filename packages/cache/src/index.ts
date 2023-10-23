@@ -1,32 +1,36 @@
-"use strict";
 /**
  * 缓存
  */
-export default function createCache(key) {
-	// 样式表字符串
-  let styleSheetText = "";
-	// 已命中缓存（hash -> 样式表文本）
-  const cached = new Set();
-	// 缓存
-  let temp = [];
+import { globalCacheMap } from "./globalCacheMap";
 
+export default function createCache(key) {
+  // 获取全局注册过的cache
+  const cache = globalCacheMap.current[key] || (globalCacheMap.current[key] = {
+    styleSheetText: '',
+    cached: new Set(),
+    temp: []
+  });
+
+  // 加入一个缓存数据
   function add(hash, styleText) {
-    if (cached.has(hash)) return;
-    temp.push({ hash, styleText });
+    if (cache.cached.has(hash)) return;
+    cache.temp.push({ hash, styleText });
   }
 
+  // 生成样式文本
   function genStyleSheetText() {
     let res = "";
-    temp.forEach((node) => {
+    cache.temp.forEach((node) => {
       res += node.styleText;
-      cached.add(node.hash);
+      cache.cached.add(node.hash);
     });
-    temp = [];
-    return (styleSheetText += res);
+    cache.temp = [];
+    return (cache.styleSheetText += res);
   }
 
+  // 暂未使用的缓存数据大小
   function tempSize() {
-    return temp.length;
+    return cache.temp.length;
   }
 
   return {

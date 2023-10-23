@@ -1,7 +1,7 @@
 import styles from "./Page1.module.less";
 import { useState } from "react";
 import { Space, Radio, Button } from "antd";
-import { css, keyframes } from "class-css";
+import { createClassCss, css, keyframes } from "class-css";
 
 const appear = keyframes({
   from: {
@@ -28,7 +28,7 @@ export default function Page1() {
   return (
     <Space direction="vertical">
       Page1
-      <Button>按钮一</Button>
+      <Button onClick={() => createClassCss({key: 'css'})}>新建css</Button>
       <button className={styles.myButton}>按钮一</button>
       <Radio.Group
         value={color}

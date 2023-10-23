@@ -25,3 +25,8 @@ export function getKeyframesString(keyframesName: string, style: StyleObject) {
   const keyframesStr = stringifyKeyframe(style);
   return `@keyframes ${keyframesName}${keyframesStr}`;
 }
+
+export default {
+  getStyleString,
+  getKeyframesString
+}

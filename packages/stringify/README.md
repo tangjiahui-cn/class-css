@@ -14,10 +14,10 @@ const styleString = getStyleString('my-ui', {
 })
 
 const keyframesString = getKeyframesString('my-keyframe', {
-  from {
+  from: {
     color: 'red'
   },
-  to {
+  to: {
     color: 'blue'
   }
 })

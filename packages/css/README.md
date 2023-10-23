@@ -30,3 +30,6 @@ export default () => {
  @emotion/css虽然有缓存机制的存在，当仍然会创建大量的style标签。
 
  class-css作为其的一种替代方案，确保每个实例仅对应一个style标签。同时由于自实现缓存机制存在（对每个style文本计算唯一hash并缓存到set中），不会重复进行大量耗时运算，避免对性能造成影响。
+
+# Why use css-in?
+方便的通过js控制css样式，同时亦能通过 css 样式覆盖的方式进行全局覆盖。

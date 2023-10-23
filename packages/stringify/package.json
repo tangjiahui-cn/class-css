@@ -12,5 +12,9 @@
   "scripts": {
     "clean": "rimraf ./dist ./dist-types",
     "build:ts": "rimraf ./dist-types && tsc"
+  },
+  "dependencies": {
+    "g": "^2.0.1",
+    "ts-node": "^10.9.1"
   }
 }

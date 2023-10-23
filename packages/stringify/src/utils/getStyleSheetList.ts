@@ -1,7 +1,8 @@
+import { transformKey } from ".";
 import type { StyleObject, StyleObjectValue } from "..";
 import isUnitLessProp from "./unitLess";
 
-interface StyleSheetItem {
+export interface StyleSheetItem {
   className: string; // 类名
   list: string[]; // 键值字符串(['k:v', 'k:v'])
 }
@@ -20,7 +21,7 @@ export function styleSheetListToString(
 export default function getStyleSheetList(
   className: string,
   styleObject: StyleObject
-) {
+): StyleSheetItem[] {
   // 样式表值列表（保存类名，对应样式表值）
   const styleSheetList: StyleSheetItem[] = [];
 
@@ -48,7 +49,7 @@ export default function getStyleSheetList(
         if (!isUnitLessProp(propKey) && typeof value === "number") {
           value = value + "px";
         }
-        item.list.push(`${formatKey(propKey)}: ${value}`);
+        item.list.push(`${transformKey(propKey)}: ${value}`);
       }
     }
     styleSheetList.push(item);
@@ -56,13 +57,4 @@ export default function getStyleSheetList(
 
   lookStyleObject(className, styleObject);
   return styleSheetList;
-}
-
-// 驼峰式 转 横线间隔
-function formatKey(key: string) {
-  let res = key.replace(/[A-Z]/g, (i) => `-${i.toLowerCase()}`);
-  if (res?.[0] === "-") {
-    res = res.slice(1);
-  }
-  return res;
 }

@@ -1,10 +1,10 @@
 import createExecutor from "./utils/executor";
-import hash from 'class-css-hash';
+import hash from "class-css-hash";
 import createCache from "class-css-cache";
-import getStyleString from "class-css-stringify";
+import { getStyleString, getKeyframesString } from "class-css-stringify";
 
 export interface StyleObject {
-  [propKey: string]: string | number;
+  [propKey: string]: string | number | StyleObject;
 }
 
 export interface Options {
@@ -15,11 +15,7 @@ export function createClassCss(options: Options) {
   const cache = createCache(options.key);
   const executor = createExecutor(options.key);
 
-  function css (style: StyleObject) {
-    const hashStr: string = hash(JSON.stringify(style));
-    const className = `${options.key}-${hashStr}`;
-    const styleStr: string = getStyleString(className, style);    
-
+  function appendCache(hashStr: string, styleStr: string) {
     // 添加样式到缓存中
     cache.add(hashStr, styleStr);
 
@@ -27,10 +23,26 @@ export function createClassCss(options: Options) {
     if (cache.tempSize()) {
       executor.update(cache.genStyleSheetText());
     }
+  }
+
+  function css(style: StyleObject) {
+    const hashStr: string = hash(JSON.stringify(style));
+    const className = `${options.key}-${hashStr}`;
+    const styleStr: string = getStyleString(className, style);
+    appendCache(hashStr, styleStr);
     return className;
   }
 
-  return {
-    css
+  function keyframes(style: StyleObject) {
+    const hashStr: string = hash(JSON.stringify(style));
+    const keyframeName = `${options.key}-keyframes-${hashStr}`;
+    const styleStr: string = getKeyframesString(keyframeName, style);
+    appendCache(hashStr, styleStr);
+    return keyframeName;
   }
+
+  return {
+    css,
+    keyframes,
+  };
 }

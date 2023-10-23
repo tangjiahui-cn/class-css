@@ -1,12 +1,30 @@
 import styles from "./Page1.module.less";
 import { useState } from "react";
 import { Space, Radio, Button } from "antd";
-import { css, createClassCss } from "class-css";
+import { css, keyframes } from "class-css";
 
-const { css: css2 } = createClassCss({ key: "tiger-ui" });
+const appear = keyframes({
+  from: {
+    background: "yellow",
+  },
+  to: {
+    background: "blue",
+  },
+});
+
+const disAppear = keyframes({
+  from: {
+    background: "blue",
+  },
+  to: {
+    background: "yellow",
+  },
+});
 
 export default function Page1() {
   const [color, setColor] = useState("blue");
+  const [isAppear, setIsAppear] = useState("1");
+  
   return (
     <Space direction="vertical">
       Page1
@@ -24,12 +42,23 @@ export default function Page1() {
           { label: "黄色", value: "yellow" },
         ]}
       />
+      <Radio.Group
+        value={isAppear}
+        onChange={(e) => setIsAppear(e.target.value)}
+        optionType="button"
+        buttonStyle="solid"
+        options={[
+          { label: "黄 -> 蓝", value: "1" },
+          { label: "蓝 -> 黄", value: "2" },
+        ]}
+      />
       <div>
         参照组：
         <button
           className={css({
             background: "yellow",
             border: "none",
+            animation: `${isAppear === "1" ? appear : disAppear} 3s`,
           })}
         >
           StyleCss按钮

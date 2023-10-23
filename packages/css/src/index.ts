@@ -1,4 +1,4 @@
 import { createClassCss } from "./create-instance";
 
-export const { css } = createClassCss({ key: "css" });
+export const { css, keyframes } = createClassCss({ key: "css" });
 export { createClassCss };

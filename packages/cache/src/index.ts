@@ -18,9 +18,6 @@ export default function createCache(key) {
   function genStyleSheetText() {
     let res = "";
     temp.forEach((node) => {
-      const className = `${key}-${node.hash}`;
-      // const classText = `.${className}{${node.styleText}}`;
-      // res += classText;
       res += node.styleText;
       cached.add(node.hash);
     });

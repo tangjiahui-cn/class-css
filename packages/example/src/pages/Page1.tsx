@@ -28,7 +28,7 @@ export default function Page1() {
   return (
     <Space direction="vertical">
       Page1
-      <Button onClick={() => createClassCss({key: 'css'})}>新建css</Button>
+      <Button onClick={() => console.log(createClassCss({key: 'css'}))}>新建css实例</Button>
       <button className={styles.myButton}>按钮一</button>
       <Radio.Group
         value={color}
@@ -58,7 +58,7 @@ export default function Page1() {
           className={css({
             background: "yellow",
             border: "none",
-            animation: `${isAppear === "1" ? appear : disAppear} 3s`,
+            animation: `${isAppear === "1" ? appear : disAppear} 3s forwards`,
           })}
         >
           StyleCss按钮

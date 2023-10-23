@@ -1,7 +1,8 @@
 const path = require("path");
 const rootPath = (...args) => path.resolve(__dirname, "../../", ...args);
 const buildEsmConfig = require("./build-esm");
-const webpack = require("webpack");
+const buildCjsConfig = require("./build-cjs");
+const { runWebpackSync } = require("../utils");
 
 // 要打包的子包
 const buildPackages = [
@@ -27,29 +28,20 @@ const buildPackages = [
   },
 ];
 
-const webpackConfigs = buildPackages.map((package) => {
+const webpackESMConfigs = buildPackages.map((package) => {
   return buildEsmConfig({
+    clean: true,
     path: rootPath(package.packageDir, "dist"),
     entry: rootPath(package.packageDir, package.entry),
   });
-});
+})
 
-// 同步运行webpack打包任务
-runWebpackSync(webpackConfigs);
+const webpackCJSConfigs = buildPackages.map((package) => {
+  return buildCjsConfig({
+    name: package.packageName,
+    path: rootPath(package.packageDir, "dist"),
+    entry: rootPath(package.packageDir, package.entry),
+  });
+})
 
-function runWebpackSync(configList) {
-  let i = 0;
-
-  function run() {
-    const config = configList[i++];
-    if (config) {
-      webpack(config).run(() => {
-        if (i < configList.length) {
-          run();
-        }
-      });
-    }
-  }
-
-  run();
-}
+runWebpackSync(webpackESMConfigs, webpackCJSConfigs);

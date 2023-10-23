@@ -1,17 +1,17 @@
-module.exports = function buildEsmConfig({ entry, path, clean }) {
+module.exports = function buildEsmConfig({ entry, path, name, clean }) {
   return {
     mode: "production",
     entry,
     output: {
       path,
-      filename: "index.esm.js",
+      filename: "index.cjs.js",
+      globalObject: 'this',
       clean,
       library: {
-        type: "module",
+        name,
+        export: 'default',
+        type: "umd",
       },
-    },
-    experiments: {
-      outputModule: true,
     },
     resolve: {
       extensions: [".ts", ".js", ".json"],

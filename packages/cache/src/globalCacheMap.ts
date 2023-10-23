@@ -1,4 +1,4 @@
-interface Cache {
+export interface Cache {
   styleSheetText: string;
   cached: Set<string>;
   temp: {
@@ -7,7 +7,7 @@ interface Cache {
   }[];
 }
 
-interface CacheMap {
+export interface CacheMap {
   current: {
     [k: string]: Cache;
   };

@@ -1,11 +1,11 @@
 /**
  * 缓存
  */
-import { globalCacheMap } from "./globalCacheMap";
+import { globalCacheMap, Cache } from "./globalCacheMap";
 
-export default function createCache(key) {
+export default function createCache(key: string) {
   // 获取全局注册过的cache
-  const cache = globalCacheMap.current[key] || (globalCacheMap.current[key] = {
+  const cache: Cache = globalCacheMap.current[key] || (globalCacheMap.current[key] = {
     styleSheetText: '',
     cached: new Set(),
     temp: []
@@ -37,5 +37,6 @@ export default function createCache(key) {
     add,
     tempSize,
     genStyleSheetText,
+    getCache: () => cache
   };
 }

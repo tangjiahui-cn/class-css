@@ -14,7 +14,7 @@
   "author": "tangjiahui-cn",
   "license": "ISC",
   "dependencies": {
-    "class-css-cache": "^1.0.10",
+    "class-css-cache": "workspace:^1.0.10",
     "class-css-hash": "^1.0.12",
     "class-css-stringify": "^1.0.10"
   },

@@ -29,7 +29,7 @@ importers:
 
   packages/css:
     specifiers:
-      class-css-cache: ^1.0.10
+      class-css-cache: workspace:^1.0.10
       class-css-hash: ^1.0.12
       class-css-stringify: ^1.0.10
     dependencies:
@@ -46,6 +46,7 @@ importers:
       '@vitejs/plugin-react': ^4.0.3
       antd: ^5.10.1
       class-css: workspace:^1.0.12
+      class-css-cache: workspace:^1.0.10
       eslint: ^8.45.0
       eslint-plugin-react-hooks: ^4.6.0
       eslint-plugin-react-refresh: ^0.4.3
@@ -57,6 +58,7 @@ importers:
     dependencies:
       antd: 5.10.1_biqbaboplfbrettd7655fr4n2y
       class-css: link:../css
+      class-css-cache: link:../cache
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:

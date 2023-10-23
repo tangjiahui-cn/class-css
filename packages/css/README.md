@@ -33,6 +33,7 @@ export default () => {
 ```jsx
 import React from "react";
 import css from "class-css";
+
 export default () => {
   return <div className={css({ color: "red" })}>一段文字</div>;
 };
@@ -42,7 +43,7 @@ export default () => {
 
 ```jsx
 <template>
-  <div :class="css({ color: "red" })">一段文字</div>
+  <div :class="css({ color: 'red' })">一段文字</div>
 </template>
 
 <script setup>

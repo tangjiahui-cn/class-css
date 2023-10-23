@@ -14,6 +14,7 @@ export default function createCache(key) {
   // 加入一个缓存数据
   function add(hash, styleText) {
     if (cache.cached.has(hash)) return;
+    cache.cached.add(hash);
     cache.temp.push({ hash, styleText });
   }
 
@@ -22,7 +23,6 @@ export default function createCache(key) {
     let res = "";
     cache.temp.forEach((node) => {
       res += node.styleText;
-      cache.cached.add(node.hash);
     });
     cache.temp = [];
     return (cache.styleSheetText += res);

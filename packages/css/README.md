@@ -1,4 +1,4 @@
-# class-css-stringify
+# class-css
 
 一个 css-in-js 库，允许你在 className 中使用 css 的形式编写样式
 ## Quick Start

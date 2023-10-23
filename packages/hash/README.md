@@ -1,4 +1,4 @@
-# class-css-stringify
+# class-css-hash
 
 对一段字符串计算其hash值。（此处暂用emotion-js库中的hash实现替代）
 

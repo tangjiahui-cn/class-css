@@ -7,7 +7,7 @@ class-css 库的缓存库实现。
 运行一个简单的示例程序。
 
 ```jsx
-import createCache from "class-css-cache";
+const createCache = require("class-css-cache");
 
 const cache = createCache("css");
 cache.add("aaabbb", ".my-ui{color:red;}");

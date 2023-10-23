@@ -5,7 +5,7 @@
 ## Quick Start
 运行一个简单的示例程序。
 ```jsx
-import {getStyleString, getKeyframesString} from 'class-css-stringify'
+const { getStyleString, getKeyframesString } = require("class-css-stringify");
 
 const styleString = getStyleString('my-ui', {
   color: 'red',

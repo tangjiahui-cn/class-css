@@ -1,6 +1,6 @@
 # class-css
 
-一个 css-in-js 库, 可用于样式局域化，以及通过js控制样式。
+一个 css-in-js 库, 可用于样式局域化，以及通过 js 控制样式。
 
 ## Quick Start
 
@@ -32,7 +32,7 @@ export default () => {
 
 ```jsx
 import React from "react";
-import css from "class-css";
+import { css } from "class-css";
 
 export default () => {
   return <div className={css({ color: "red" })}>一段文字</div>;
@@ -60,8 +60,9 @@ export default () => {
 class-css 作为其的一种替代方案，确保每个实例仅对应一个 style 标签。同时由于自实现缓存机制存在（对每个 style 文本计算唯一 hash 并缓存到 Set 中），不会重复进行大量耗时运算，避免对性能造成影响。
 
 ## Why use css-in-js library?
-- 实现style不支持的功能，例如：伪选择器（:hover）等。
+
+- 实现 style 不支持的功能，例如：伪选择器（:hover）等。
 - 方便替换主题色。
 - 局域样式，不影响全局样式。
-- 可以通过类名进行全局覆盖css-in-js样式。
-- 无需加载额外的css文件
+- 可以通过类名进行全局覆盖 css-in-js 样式。
+- 无需加载额外的 css 文件

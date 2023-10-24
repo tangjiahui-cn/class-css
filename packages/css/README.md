@@ -51,13 +51,13 @@ export default () => {
 </script>
 ```
 
-## Why Not @emotion/css ?
+## Compare with @emotion/css ?
 
-@emotion/css 是一款 css-in-js 实现，class-css 是对其的扩充。
+class-css 能比 @emotion/css 创建更少的dom节点。
 
-@emotion/css 虽然有缓存机制的存在，当仍然会创建大量的 style 标签。
+> @emotion/css 调用 css 方法时，如果不存在于缓存中，则不断创建 style 标签。
 
-class-css 作为其的一种替代方案，确保每个实例仅对应一个 style 标签。同时由于自实现缓存机制存在（对每个 style 文本计算唯一 hash 并缓存到 Set 中），不会重复进行大量耗时运算，避免对性能造成影响。
+> class-css，仅会在全局创建唯一 style 标签，并采用增量添加的形式添加新的样式文本到 style 标签中。
 
 ## Why use css-in-js library?
 

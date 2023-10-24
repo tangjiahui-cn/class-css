@@ -19,7 +19,7 @@ export default function createCache(key: string) {
   }
 
   // 生成样式文本
-  function genStyleSheetText() {
+  function genRulesText() {
     let res = "";
     cache.temp.forEach((node) => {
       res += node.styleText;
@@ -36,7 +36,7 @@ export default function createCache(key: string) {
   return {
     add,
     tempSize,
-    genStyleSheetText,
+    genRulesText,
     getCache: () => cache
   };
 }

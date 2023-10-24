@@ -17,30 +17,40 @@ export function createClassCss(options: Options) {
   const executor = createExecutor(options.key);
   const hashFn = options?.hash || hash;
 
-  function appendCache(hashStr: string, styleStr: string) {
+  function appendCache(hashStr: string, rulesText: string) {
     // 添加样式到缓存中
-    cache.add(hashStr, styleStr);
+    cache.add(hashStr, rulesText);
 
     // 有待更新缓存时，才更新
     if (cache.tempSize()) {
-      executor.updateStyleSheet(cache.genStyleSheetText());
+      executor.updateRules(cache.genRulesText());
     }
   }
 
-  function css(style: StyleObject) {
-    const hashStr: string = hashFn(JSON.stringify(style));
+  /**
+   * 生成类名
+   * @param styleObject 样式规则对象
+   * @returns 
+   */
+  function css(styleObject: StyleObject) {
+    const hashStr: string = hashFn(JSON.stringify(styleObject));
     const className = `${options.key}-${hashStr}`;
-    const styleStr: string = getStyleString(className, style);
-    appendCache(hashStr, styleStr);
+    const rulesText: string = getStyleString(className, styleObject);
+    appendCache(hashStr, rulesText);
     return className;
   }
-
-  function keyframes(style: StyleObject) {
-    const hashStr: string = hashFn(JSON.stringify(style));
-    const keyframeName = `${options.key}-keyframes-${hashStr}`;
-    const styleStr: string = getKeyframesString(keyframeName, style);
-    appendCache(hashStr, styleStr);
-    return keyframeName;
+  
+  /**
+   * 生成 keyframes 名称
+   * @param styleObject 样式规则对象
+   * @returns 
+   */
+  function keyframes(styleObject: StyleObject) {
+    const hashStr: string = hashFn(JSON.stringify(styleObject));
+    const keyframesName = `${options.key}-keyframes-${hashStr}`;
+    const keyframesRulesText: string = getKeyframesString(keyframesName, styleObject);
+    appendCache(hashStr, keyframesRulesText);
+    return keyframesName;
   }
 
   return {

@@ -9,13 +9,18 @@ export default function createExecutor(key: string) {
   let style: HTMLStyleElement;
   const tags: HTMLStyleElement[] = getTagList(key);
 
+  /**
+   * 确保全局只存在一个唯一key的style标签
+   */
   if (tags.length) {
-    // 如果全局存在style标签
     deleteOtherTag(tags);
     style = tags[0];
     text = (style?.firstChild as any) || document.createTextNode("");
   }
 
+  /**
+   * 懒挂载style标签
+   */
   function lazyMount() {
     text = document.createTextNode("");
     style = document.createElement("style");
@@ -32,11 +37,11 @@ export default function createExecutor(key: string) {
   }
 
   // 更新样式表
-  function updateStyleSheet(styleText: string): void {
+  function updateRules(rulesText: string): void {
     if (!style) {
       lazyMount();
     }
-    text.nodeValue = styleText;
+    text.nodeValue = rulesText;
   }
 
   // 仅保留最后一个style标签
@@ -51,7 +56,7 @@ export default function createExecutor(key: string) {
   }
 
   return {
-    updateStyleSheet,
+    updateRules,
     getTagList,
   };
 }

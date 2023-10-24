@@ -1,6 +1,6 @@
 {
   "name": "class-css",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "A css-in-js library, which make your work interesting and easily!",
   "private": false,
   "types": "./dist-types/index.d.ts",
@@ -16,7 +16,7 @@
   "dependencies": {
     "class-css-cache": "workspace:^1.0.19",
     "class-css-hash": "^1.0.16",
-    "class-css-stringify": "^1.0.22"
+    "class-css-stringify": "^1.0.23"
   },
   "gitHead": "da0f02497f6b3a67ef132b5c94a28265d18d14a8"
 }

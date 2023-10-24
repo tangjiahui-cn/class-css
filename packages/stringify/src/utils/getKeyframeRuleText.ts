@@ -7,11 +7,9 @@ interface Keyframes {
 }
 
 // 合法的key（from、to、'1%'）
-const LEGAL_KEY_REG = /^\d{1,2}%$/;
+const LEGAL_KEY_REG = /^(\d{1,2}%|from|to|100%)$/;
 function isLegalKey(key: string) {
-  return (
-    key === "from" || key === "to" || key === "100%" || LEGAL_KEY_REG.test(key)
-  );
+  return LEGAL_KEY_REG.test(key);
 }
 
 function isObject(value: any) {
@@ -29,8 +27,8 @@ export default function getKeyframesRuleText(
 ) {
   const keyframes: Keyframes = {
     name: keyframeName,
-    ruleText: []
-  }
+    ruleText: [],
+  };
 
   if (!isObject(styleObject)) {
     throw new Error("style must a object.");
@@ -46,12 +44,12 @@ export default function getKeyframesRuleText(
       throw new Error("value must a object.");
     }
 
-    keyframes.ruleText.push(key + stringifyRules(getStyleRules('', value)));
+    keyframes.ruleText.push(key + stringifyRules(getStyleRules("", value)));
   }
   return stringifyKeyframesRules(keyframes);
 }
 
-function stringifyKeyframesRules (keyframe: Keyframes) {
-  const rulesText = keyframe.ruleText.join('');
+function stringifyKeyframesRules(keyframe: Keyframes) {
+  const rulesText = keyframe.ruleText.join("");
   return `@keyframes ${keyframe.name}{${rulesText}}`;
 }

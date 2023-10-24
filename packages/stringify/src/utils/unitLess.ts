@@ -1,4 +1,4 @@
-// 值可为number类型的属性值。
+// 值可为number类型的属性。
 //（例如：flex: 1，不必转化为 flex: 1px;）
 
 const unitLessNumbers = new Set([

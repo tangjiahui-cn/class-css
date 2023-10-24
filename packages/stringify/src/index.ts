@@ -1,32 +1,42 @@
 /**
  * style对象转字符串
  */
-
-import getStyleSheetList, {
-  styleSheetListToString,
-} from "./utils/getStyleSheetList";
-import stringifyKeyframe from "./utils/stringifyKeyframes";
+import getStyleRuleText from "./utils/getStyleRuleText";
+import getKeyframesRuleText from "./utils/getKeyframeRuleText";
 
 export type StyleObjectValue = StyleObject | string | number;
 export interface StyleObject {
-  [k: string]: StyleObjectValue;
+  [k: string]: StyleObjectValue | number | string;
 }
 
-export function getStyleString(className: string, style: StyleObject) {
+/**
+ * 获取style标签规则文本
+ * @param className 类名
+ * @param styleObject 规则对象
+ * @returns 
+ */
+export function getStyleString(className: string, styleObject: StyleObject) {
   if (!className) {
     throw new Error('getStyleString must input "className"');
   }
   const tagClassName = "." + className;
-  const list = getStyleSheetList(tagClassName, style);
-  return styleSheetListToString(list);
+  return getStyleRuleText(tagClassName, styleObject);
 }
 
+/**
+ * 获取keyframes规则文本
+ * @param keyframesName keyframes名称
+ * @param styleObject 规则对象
+ * @returns 
+ */
 export function getKeyframesString(keyframesName: string, style: StyleObject) {
-  const keyframesStr = stringifyKeyframe(style);
-  return `@keyframes ${keyframesName}${keyframesStr}`;
+  if (!keyframesName) {
+    throw new Error('getKeyframesString must input "keyframesName"');
+  }
+  return getKeyframesRuleText(keyframesName, style);
 }
 
 export default {
   getStyleString,
-  getKeyframesString
-}
+  getKeyframesString,
+};

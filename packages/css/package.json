@@ -1,6 +1,6 @@
 {
   "name": "class-css",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "A css-in-js library, which make your work interesting and easily!",
   "private": false,
   "types": "./dist-types/index.d.ts",

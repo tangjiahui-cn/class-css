@@ -14,7 +14,8 @@
     "build:ts": "rimraf ./dist-types && tsc"
   },
   "dependencies": {
-    "g": "^2.0.1",
+    "@types/react": "^18.2.15",
+    "class-css": "workspace:^1.0.21",
     "ts-node": "^10.9.1"
   }
 }

@@ -5,15 +5,15 @@ import getStyleRuleText from "./utils/getStyleRuleText";
 import getKeyframesRuleText from "./utils/getKeyframeRuleText";
 
 export type StyleObjectValue = StyleObject | string | number;
-export interface StyleObject {
-  [k: string]: StyleObjectValue | number | string;
+export type StyleObject = React.CSSProperties & {
+  [k: string]: StyleObjectValue;
 }
 
 /**
  * 获取style标签规则文本
  * @param className 类名
  * @param styleObject 规则对象
- * @returns 
+ * @returns
  */
 export function getStyleString(className: string, styleObject: StyleObject) {
   if (!className) {
@@ -27,7 +27,7 @@ export function getStyleString(className: string, styleObject: StyleObject) {
  * 获取keyframes规则文本
  * @param keyframesName keyframes名称
  * @param styleObject 规则对象
- * @returns 
+ * @returns
  */
 export function getKeyframesString(keyframesName: string, style: StyleObject) {
   if (!keyframesName) {

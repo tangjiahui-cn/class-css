@@ -2,10 +2,8 @@ import createExecutor from "./utils/executor";
 import hash from "class-css-hash";
 import createCache from "class-css-cache";
 import { getStyleString, getKeyframesString } from "class-css-stringify";
-
-export interface StyleObject {
-  [propKey: string]: string | number | StyleObject;
-}
+import type { StyleObjectValue, StyleObject } from "class-css-stringify";
+export type { StyleObjectValue, StyleObject }
 
 export interface Options {
   key: string; // 唯一key

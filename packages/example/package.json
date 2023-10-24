@@ -1,14 +1,14 @@
 {
   "name": "class-css-example",
   "private": true,
-  "version": "1.0.17",
+  "version": "1.0.18",
   "type": "module",
   "scripts": {
     "dev": "vite"
   },
   "dependencies": {
     "antd": "^5.10.1",
-    "class-css": "workspace:^1.0.17",
+    "class-css": "workspace:^1.0.18",
     "class-css-cache": "workspace:^1.0.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

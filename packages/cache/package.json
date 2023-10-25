@@ -1,6 +1,6 @@
 {
   "name": "class-css-cache",
-  "version": "1.0.19",
+  "version": "1.0.24",
   "description": "",
   "private": false,
   "types": "./dist-types/index.d.ts",

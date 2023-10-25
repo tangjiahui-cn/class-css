@@ -3,7 +3,7 @@
  *
  * tips: 用来管理style标签的更新
  */
-
+const isBrowse = typeof window !== "undefined";
 export default function createExecutor(key: string) {
   let text: Text;
   let style: HTMLStyleElement;
@@ -12,7 +12,7 @@ export default function createExecutor(key: string) {
   /**
    * 确保全局只存在一个唯一key的style标签
    */
-  if (tags.length) {
+  if (isBrowse && tags.length) {
     deleteOtherTag(tags);
     style = tags[0];
     text = (style?.firstChild as any) || document.createTextNode("");
@@ -31,13 +31,14 @@ export default function createExecutor(key: string) {
 
   // 获取全部的style标签列表
   function getTagList(key: string): HTMLStyleElement[] {
-    return (
-      (document.head.querySelectorAll(`style[class-css=${key}]`) as any) || []
-    );
+    return isBrowse
+      ? (document.head.querySelectorAll(`style[class-css=${key}]`) as any) || []
+      : [];
   }
 
   // 更新样式表
   function updateRules(rulesText: string): void {
+    if (!isBrowse) return;
     if (!style) {
       lazyMount();
     }

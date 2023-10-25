@@ -1,3 +1,4 @@
+import { error } from "../enum/errorMsg";
 import { StyleObject } from "..";
 import { getStyleRules, stringifyRules } from "./getStyleRuleText";
 
@@ -8,11 +9,11 @@ interface Keyframes {
 
 // 合法的key（from、to、'1%'）
 const LEGAL_KEY_REG = /^(\d{1,2}%|from|to|100%)$/;
-function isLegalKey(key: string) {
+export function isLegalKey(key: any) {
   return LEGAL_KEY_REG.test(key);
 }
 
-function isObject(value: any) {
+export function isObject(value: any) {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
@@ -31,17 +32,17 @@ export default function getKeyframesRuleText(
   };
 
   if (!isObject(styleObject)) {
-    throw new Error("style must a object.");
+    throw new Error(error.NOT_OBJECT);
   }
 
   for (const key in styleObject) {
     if (!isLegalKey(key)) {
-      throw new Error('keyframe key must like: "from"、"to"、"0%"、"100%"');
+      throw new Error(error.NOT_KEYFRAMES_KEY);
     }
 
     const value: any = styleObject?.[key];
     if (!isObject(value)) {
-      throw new Error("value must a object.");
+      throw new Error(error.NOT_OBJECT);
     }
 
     keyframes.ruleText.push(key + stringifyRules(getStyleRules("", value)));
@@ -49,7 +50,7 @@ export default function getKeyframesRuleText(
   return stringifyKeyframesRules(keyframes);
 }
 
-function stringifyKeyframesRules(keyframe: Keyframes) {
+export function stringifyKeyframesRules(keyframe: Keyframes) {
   const rulesText = keyframe.ruleText.join("");
   return `@keyframes ${keyframe.name}{${rulesText}}`;
 }

@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
+    "test": "jest",
     "clean": "rimraf ./dist ./dist-types",
     "build:ts": "rimraf ./dist-types && tsc"
   }

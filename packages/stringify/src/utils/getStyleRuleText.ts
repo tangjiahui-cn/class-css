@@ -1,3 +1,4 @@
+import { error } from "../enum/errorMsg";
 import { transformKey } from ".";
 import { StyleObject, StyleObjectValue } from "..";
 import isUnitLessProp from "./unitLess";
@@ -35,7 +36,7 @@ export function getStyleRules(
 
       // 包含 & 且值不是对象的，则不符合规则。
       if (isSign && !isValueObject) {
-        throw new Error(`which propKey has '&', the value must a object.`);
+        throw new Error(error.NOT_STYLE_VALUE);
       }
 
       if (isValueObject) {
@@ -45,7 +46,7 @@ export function getStyleRules(
         if (!isUnitLessProp(propKey) && typeof value === "number") {
           value = value + "px";
         }
-        rule.declaration.push(`${transformKey(propKey)}: ${value}`);
+        rule.declaration.push(`${transformKey(propKey)}:${value}`);
       }
     }
     rules.push(rule);
@@ -70,13 +71,14 @@ export default function getStyleRuleText(
 /**
  * 将style规则集转化为文本
  * @param rules 样式规则集
- * @returns 
+ * @returns
  */
 export function stringifyRules(rules: Rule[]): string {
   return rules.reduce((res, rule) => {
-    const ruleText = rule.declaration?.length
-      ? `${rule.className}{${rule.declaration.join(";")};}`
-      : "";
+    const endSign = rule.declaration.length ? ";" : "";
+    const ruleText = `${rule.className}{${rule.declaration.join(
+      ";"
+    )}${endSign}}`;
     return res + ruleText;
   }, "");
 }

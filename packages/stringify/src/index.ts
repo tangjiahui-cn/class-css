@@ -3,6 +3,7 @@
  */
 import getStyleRuleText from "./utils/getStyleRuleText";
 import getKeyframesRuleText from "./utils/getKeyframeRuleText";
+import { error } from "./enum/errorMsg";
 
 export type StyleObjectValue = StyleObject | string | number;
 export type StyleObject = React.CSSProperties & {
@@ -17,7 +18,7 @@ export type StyleObject = React.CSSProperties & {
  */
 export function getStyleString(className: string, styleObject: StyleObject) {
   if (!className) {
-    throw new Error('getStyleString must input "className"');
+    throw new Error(error.NO_CLASS_NAME);
   }
   const tagClassName = "." + className;
   return getStyleRuleText(tagClassName, styleObject);
@@ -31,7 +32,7 @@ export function getStyleString(className: string, styleObject: StyleObject) {
  */
 export function getKeyframesString(keyframesName: string, style: StyleObject) {
   if (!keyframesName) {
-    throw new Error('getKeyframesString must input "keyframesName"');
+    throw new Error(error.NO_KEYFRAMES_NAME);
   }
   return getKeyframesRuleText(keyframesName, style);
 }

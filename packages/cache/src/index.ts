@@ -37,6 +37,5 @@ export default function createCache(key: string) {
     add,
     tempSize,
     genRulesText,
-    getCache: () => cache
   };
 }

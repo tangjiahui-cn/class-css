@@ -9,6 +9,7 @@
     "declarationDir": "./dist-types"
   },
   "include": ["src"],
+  "exclude": ["**/__tests*"],
   "ts-node": {
     "esm": true
   }

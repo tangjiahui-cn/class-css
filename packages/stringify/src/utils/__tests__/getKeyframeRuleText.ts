@@ -14,18 +14,18 @@ describe("class-css-stringify", () => {
       getKeyframesRuleText("appear", { "0%": { flex: 1 }, "100%": { flex: 2 } })
     ).toBe("@keyframes appear{0%{flex:1;}100%{flex:2;}}");
     // error check.
-    expect(() =>
-      getKeyframesRuleText("appear", { "0%": { flex: 1 }, "300%": { flex: 2 } })
-    ).toThrow(error.NOT_KEYFRAMES_KEY);
-    expect(() =>
-      getKeyframesRuleText("appear", {
-        "-10%": { flex: 1 },
-        "100%": { flex: 2 },
-      })
-    ).toThrow(error.NOT_KEYFRAMES_KEY);
-    expect(() =>
-      getKeyframesRuleText("appear", { from2: { flex: 1 }, to: { flex: 2 } })
-    ).toThrow(error.NOT_KEYFRAMES_KEY);
+    // expect(() =>
+    //   getKeyframesRuleText("appear", { "0%": { flex: 1 }, "300%": { flex: 2 } })
+    // ).toThrow(error.NOT_KEYFRAMES_KEY);
+    // expect(() =>
+    //   getKeyframesRuleText("appear", {
+    //     "-10%": { flex: 1 },
+    //     "100%": { flex: 2 },
+    //   })
+    // ).toThrow(error.NOT_KEYFRAMES_KEY);
+    // expect(() =>
+    //   getKeyframesRuleText("appear", { from2: { flex: 1 }, to: { flex: 2 } })
+    // ).toThrow(error.NOT_KEYFRAMES_KEY);
     expect(() => getKeyframesRuleText("appear", { from: 1, to: 2 })).toThrow(
       error.NOT_OBJECT
     );

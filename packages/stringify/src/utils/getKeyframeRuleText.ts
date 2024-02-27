@@ -36,9 +36,9 @@ export default function getKeyframesRuleText(
   }
 
   for (const key in styleObject) {
-    if (!isLegalKey(key)) {
-      throw new Error(error.NOT_KEYFRAMES_KEY);
-    }
+    // if (!isLegalKey(key)) {
+    //   throw new Error(error.NOT_KEYFRAMES_KEY);
+    // }
 
     const value: any = styleObject?.[key];
     if (!isObject(value)) {

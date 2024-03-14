@@ -103,8 +103,6 @@ export class Instance {
   }
 
   public keyframes(styleObject: StyleObject) {
-    console.log("createClass: ", styleObject);
-
     const tempText: string = getKeyframesString(
       CLASS_NAME_PLACEHOLDER,
       styleObject

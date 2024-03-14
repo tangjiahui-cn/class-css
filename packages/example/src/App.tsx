@@ -3,7 +3,7 @@ import Page1 from "./pages/Page1";
 import Page2 from "./pages/Page2";
 import { Tabs } from "antd";
 import { Render } from "class-css-render";
-import { Instance, css } from "class-css";
+import { Instance } from "class-css";
 export const ins = new Instance({
   id: 'zzzz'
 });

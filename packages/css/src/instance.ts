@@ -11,7 +11,8 @@ export interface InstanceConfig {
   hash?: Hash;
 }
 
-const CLASS_NAME_PLACEHOLDER = "_$@_";
+const CLASS_NAME_PLACEHOLDER = "_@@_";
+const CLASS_NAME_PLACEHOLDER_REG = new RegExp(CLASS_NAME_PLACEHOLDER, 'g')
 const DEFAULT_ID = "css";
 
 type GetStyleObject = (data: IObject) => StyleObject;
@@ -47,8 +48,6 @@ export class Instance {
 
   // create dynamic class.
   private createClass(styleObject: StyleObject): string {
-    console.log("createClass: ", styleObject);
-
     const tempText: string = getStyleString(
       CLASS_NAME_PLACEHOLDER,
       styleObject
@@ -59,7 +58,7 @@ export class Instance {
       const className = `${this.id}-${hashText}`;
       this.cache.set(hashText, {
         className,
-        styleText: tempText.replace(CLASS_NAME_PLACEHOLDER, className),
+        styleText: tempText.replace(CLASS_NAME_PLACEHOLDER_REG, className),
       });
     }
 
@@ -117,7 +116,7 @@ export class Instance {
       const className = `keyframes-${this.id}-${hashText}`;
       this.cache.set(hashText, {
         className,
-        styleText: tempText.replace(CLASS_NAME_PLACEHOLDER, className),
+        styleText: tempText.replace(CLASS_NAME_PLACEHOLDER_REG, className),
       });
     }
 
@@ -128,10 +127,5 @@ export class Instance {
     }
 
     return cacheUnit?.className || "";
-    // const hashStr: string = hash(JSON.stringify(styleObject));
-    // const keyframesName = `${options.key}-keyframes-${hashStr}`;
-    // const keyframesRulesText: string = getKeyframesString(keyframesName, styleObject);
-    // appendCache(hashStr, keyframesRulesText);
-    // return keyframesName;
   }
 }

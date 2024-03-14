@@ -1,6 +1,6 @@
 {
   "name": "class-css-stringify",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "",
   "private": false,
   "types": "./dist-types/index.d.ts",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@types/react": "^18.2.15",
-    "class-css": "workspace:^1.0.27",
+    "class-css": "workspace:^1.0.28",
     "ts-node": "^10.9.1"
   }
 }

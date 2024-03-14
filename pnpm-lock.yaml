@@ -62,7 +62,7 @@ importers:
         specifier: workspace:^
         version: link:../render
       class-css-stringify:
-        specifier: ^1.0.27
+        specifier: ^1.0.28
         version: link:../stringify
 
   packages/example:
@@ -71,7 +71,7 @@ importers:
         specifier: ^5.10.1
         version: 5.10.1(react-dom@18.2.0)(react@18.2.0)
       class-css:
-        specifier: workspace:^1.0.27
+        specifier: workspace:^1.0.28
         version: link:../css
       class-css-cache:
         specifier: workspace:^1.0.24
@@ -130,7 +130,7 @@ importers:
         specifier: ^18.2.15
         version: 18.2.30
       class-css:
-        specifier: workspace:^1.0.27
+        specifier: workspace:^1.0.28
         version: link:../css
       ts-node:
         specifier: ^10.9.1

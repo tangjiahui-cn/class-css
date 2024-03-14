@@ -8,5 +8,5 @@
     "baseUrl": ".",
     "declarationDir": "./dist-types"
   },
-  "include": ["src", "./typings.d.ts"]
+  "include": ["src"]
 }

@@ -1,7 +1,11 @@
 import { createClassCss } from "./create-instance";
+import { Instance } from "./instance";
+export * from "./instance";
 
-export const { css, keyframes, getCache, getExecutor } = createClassCss({
-  key: "css",
+const instance = new Instance({
+  id: "css",
 });
+const css = instance.css.bind(instance);
+const keyframes = instance.keyframes.bind(instance);
 
-export { createClassCss };
+export { createClassCss, css, keyframes };

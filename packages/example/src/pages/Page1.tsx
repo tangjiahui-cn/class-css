@@ -24,11 +24,13 @@ const disAppear = keyframes({
 export default function Page1() {
   const [color, setColor] = useState("blue");
   const [isAppear, setIsAppear] = useState("1");
-  
+
   return (
     <Space direction="vertical">
       Page1
-      <Button onClick={() => console.log(createClassCss({key: 'css'}))}>新建css实例</Button>
+      <Button onClick={() => console.log(createClassCss({ key: "css" }))}>
+        新建css实例
+      </Button>
       <button className={styles.myButton}>按钮一</button>
       <Radio.Group
         value={color}

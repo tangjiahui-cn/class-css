@@ -10,6 +10,7 @@
     "antd": "^5.10.1",
     "class-css": "workspace:^1.0.25",
     "class-css-cache": "workspace:^1.0.24",
+    "class-css-render": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

@@ -26,6 +26,11 @@ const buildPackages = [
     packageName: "class-css",
     entry: "src/index.ts",
   },
+  {
+    packageDir: "packages/render",
+    packageName: "class-css-render",
+    entry: "src/index.ts",
+  },
 ];
 
 const webpackESMConfigs = buildPackages.map((package) => {

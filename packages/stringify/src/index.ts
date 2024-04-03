@@ -37,11 +37,6 @@ export function getKeyframesString(keyframesName: string, style: StyleObject) {
   return getKeyframesRuleText(keyframesName, style);
 }
 
-console.log(getStyleString('zzz', {
-  '--root': 'red',
-}));
-
-
 export default {
   getStyleString,
   getKeyframesString,
